@@ -1,0 +1,37 @@
+<ion-app>
+  <ion-menu side="start" menuId="itemMenu">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Home</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle menu="itemMenu">
+          <ion-item lines="none" [routerLink]="['/']">
+            <ion-label>Home</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="itemMenu">
+          <ion-item lines="none" [routerLink]="['./admin']">
+            <ion-label>Admin</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle menu="itemMenu">
+          <ion-item lines="none" [routerLink]="['./about-us']">
+            <ion-label>About Us</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+    <ion-footer>
+      <ion-menu-toggle menu="itemMenu">
+        <ion-item lines="none">
+          <ion-label>Exit</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-footer>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>
+

@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tambah Product</ion-title>
+    <ion-back-button slot="start" defaultHref="/admin"></ion-back-button>
+    <ion-button slot="end" [disabled]="newItem.invalid" (click)=presentAlertAdd()>
+      ADD
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="newItem">
+    <ion-list>
+
+      <!-- imageUrl -->
+      <ion-item>
+        <ion-label position="fixed">Url Foto</ion-label>
+        <ion-input type="text" formControlName="imageUrl"></ion-input>
+      </ion-item>
+
+      <!-- Type -->
+      <ion-item>
+        <ion-label position="fixed">Jenis</ion-label>
+        <ion-select [(ngModel)]="type" interface="action-sheet" formControlName="imageUrl">
+          <ion-select-option value="cpu">Processor</ion-select-option>
+          <ion-select-option value="ram">RAM</ion-select-option>
+          <ion-select-option value="motherboard">Motherboard</ion-select-option>
+          <ion-select-option value="gpu">GPU</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- model -->
+      <ion-item>
+        <ion-label position="fixed">Model</ion-label>
+        <ion-input type="text" formControlName="model"></ion-input>
+      </ion-item>
+
+      <!-- brand -->
+      <ion-item>
+        <ion-label position="fixed">Merek</ion-label>
+        <ion-input type="text" formControlName="brand"></ion-input>
+      </ion-item>
+
+      <!-- Price -->
+      <ion-item>
+        <ion-label position="fixed">Harga</ion-label>
+        <ion-input type="number" formControlName="price"></ion-input>
+      </ion-item>
+
+      <!-- Stock -->
+      <ion-item>
+        <ion-label position="fixed">Stok</ion-label>
+        <ion-input type="number" formControlName="stock"></ion-input>
+      </ion-item>
+
+      <ion-item align="center"><ion-label>Detail Produk</ion-label></ion-item>
+
+      <ion-item-group *ngIf="type==='cpu'">
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <!-- Base Clock -->
+              <ion-item>
+                <ion-label position="fixed">Base Clock</ion-label>
+                <ion-input type="decimal" formControlName="base_clock"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="6">
+              <!-- Boost Clock -->
+              <ion-item>
+                <ion-label position="fixed">Boost Clock</ion-label>
+                <ion-input type="decimal" formControlName="boost_clock"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="6">
+              <!-- Core -->
+              <ion-item>
+                <ion-label position="fixed">Core Count</ion-label>
+                <ion-input type="number" formControlName="core"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="6">
+              <!-- Thread -->
+              <ion-item>
+                <ion-label position="fixed">Thread Count</ion-label>
+                <ion-input type="number" formControlName="thread"></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+      </ion-item-group>
+
+      <ion-item-group *ngIf="type==='motherboard'">
+        <!-- processor_compabilty -->
+        <ion-item>
+          <ion-label position="floating">Processor Compability</ion-label>
+          <ion-input type="text" formControlName="processor_compability"></ion-input>
+        </ion-item>
+
+        <!-- motherboard_chipset -->
+        <ion-item>
+          <ion-label position="floating">Chipset</ion-label>
+          <ion-input type="text" formControlName="motherboard_chipset"></ion-input>
+        </ion-item>
+
+      </ion-item-group>
+
+      <ion-item-group *ngIf="type==='ram'">
+        <!-- ram_type -->
+        <ion-item>
+          <ion-label position="floating">Ram Form Factor</ion-label>
+          <ion-input type="text" formControlName="ram_type"></ion-input>
+        </ion-item>
+
+        <!-- ram_speed -->
+        <ion-item>
+          <ion-label position="floating">RAM Speed</ion-label>
+          <ion-input type="text" formControlName="ram_speed"></ion-input>
+        </ion-item>
+
+      </ion-item-group>
+
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit-item</ion-title>
+    <ion-button slot="end" [disabled]="editItem.invalid" (click)=presentAlertEdit()>
+      Save
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="editItem">
+    <ion-list>
+
+      <!-- imageUrl -->
+      <ion-item>
+        <ion-label position="fixed" >Url Foto</ion-label>
+        <ion-input type="text" formControlName="imageUrl" [(ngModel)]="imageUrl"></ion-input>
+      </ion-item>
+
+      <!-- model -->
+      <ion-item>
+        <ion-label position="fixed">Model</ion-label>
+        <ion-input type="text" formControlName="model" [(ngModel)]="model"></ion-input>
+      </ion-item>
+
+      <!-- brand -->
+      <ion-item>
+        <ion-label position="fixed">Merek</ion-label>
+        <ion-input type="text" formControlName="brand" [(ngModel)]="brand"></ion-input>
+      </ion-item>
+
+      <!-- Price -->
+      <ion-item>
+        <ion-label position="fixed">Harga</ion-label>
+        <ion-input type="number" formControlName="price" [(ngModel)]="price"></ion-input>
+      </ion-item>
+
+      <!-- Stock -->
+      <ion-item>
+        <ion-label position="fixed">Stok</ion-label>
+        <ion-input type="number" formControlName="stock" [(ngModel)]="stock"></ion-input>
+      </ion-item>
+
+      <ion-item align="center"><ion-label>Detail Produk</ion-label></ion-item>
+
+      <ion-item-group *ngIf="type==='cpu'">
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <!-- Base Clock -->
+              <ion-item>
+                <ion-label position="fixed">Base Clock</ion-label>
+                <ion-input type="decimal" formControlName="base_clock" [(ngModel)]="baseClock"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="6">
+              <!-- Boost Clock -->
+              <ion-item>
+                <ion-label position="fixed">Boost Clock</ion-label>
+                <ion-input type="decimal" formControlName="boost_clock" [(ngModel)]="boostClock"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="6">
+              <!-- Core -->
+              <ion-item>
+                <ion-label position="fixed">Core Count</ion-label>
+                <ion-input type="number" formControlName="core" [(ngModel)]="core"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="6">
+              <!-- Thread -->
+              <ion-item>
+                <ion-label position="fixed">Thread Count</ion-label>
+                <ion-input type="number" formControlName="thread" [(ngModel)]="thread"></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+      </ion-item-group>
+
+      <ion-item-group *ngIf="type==='motherboard'">
+        <!-- processor_compabilty -->
+        <ion-item>
+          <ion-label position="floating">Processor Compability</ion-label>
+          <ion-input type="text" formControlName="processor_compability" [(ngModel)]="processorCompabilty"></ion-input>
+        </ion-item>
+
+        <!-- motherboard_chipset -->
+        <ion-item>
+          <ion-label position="floating">Chipset</ion-label>
+          <ion-input type="text" formControlName="motherboard_chipset" [(ngModel)]="motherboardChipset"></ion-input>
+        </ion-item>
+
+      </ion-item-group>
+
+      <ion-item-group *ngIf="type==='ram'">
+        <!-- ram_type -->
+        <ion-item>
+          <ion-label position="floating">Ram Form Factor</ion-label>
+          <ion-input type="text" formControlName="ram_type" [(ngModel)]="ramType"></ion-input>
+        </ion-item>
+
+        <!-- ram_speed -->
+        <ion-item>
+          <ion-label position="floating">RAM Speed</ion-label>
+          <ion-input type="text" formControlName="ram_speed" [(ngModel)]="ramSpeed"></ion-input>
+        </ion-item>
+
+      </ion-item-group>
+
+    </ion-list>
+  </form>
+</ion-content>
