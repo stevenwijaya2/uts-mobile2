@@ -22,7 +22,6 @@ export class ItemPage implements OnInit {
 
   viewMode(){
    this.grid = !this.grid;
-   console.log(this.grid);
   }
 
 
