@@ -98,13 +98,13 @@ export class ItemsService {
       return item.model !== itemModel;
     });
   }
-  newItem(form: FormGroup) {
+  newItem(form: FormGroup, type: string) {
     const newItem = {
       id: this.items.length + 1,
       name: form.value.brand + ' ' + form.value.model,
       model: form.value.model,
       brand: form.value.brand,
-      type: form.value.type,
+      type,
       price: form.value.price,
       stock: form.value.stock,
       imageUrl: form.value.imageUrl,

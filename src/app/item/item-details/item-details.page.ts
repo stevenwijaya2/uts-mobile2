@@ -23,7 +23,6 @@ export class ItemDetailsPage implements OnInit {
       const itemName = paramMap.get('itemName');
       // load contact detail based on contactId on URL or Params
       this.loadedItem = this.itemServices.getSelectedItem(itemName);
-      console.log(this.loadedItem.name);
     });
   }
 

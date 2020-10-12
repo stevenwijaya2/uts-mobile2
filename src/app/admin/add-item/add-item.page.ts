@@ -99,7 +99,7 @@ export class AddItemPage implements OnInit {
               await toast.present();
             }
             else {
-              this.itemService.newItem(this.newItem);
+              this.itemService.newItem(this.newItem, this.type);
               this.router.navigate(['/admin']);
               const toast = await this.toastCtrl.create({
                 message: 'Items Successfully Added to Collections',
